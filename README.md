@@ -1,52 +1,52 @@
-#**Budget Mc-Buddy**
+# **Budget Mc-Buddy💱💲**
 
-###**Project Overview**
+### **Project Overview**
 
 Budget Buddy is a minimalist and user-friendly web application designed to help individuals manage their personal finances. It allows users to log daily expenses, set financial goals, and visualize their spending patterns with simple yet effective visualizations like pie charts and bar graphs. The app is designed for those who want quick insights into their finances without the complexity of traditional budgeting tools.
 
-###**What It Does**
+### **What It Does**
 
 - Log Expenses: Users can log their daily expenses and categorize them (e.g., food, transport, entertainment, etc.).
 - Track Spending: Visualize spending summaries through bar graphs, pie charts, and potentially a dashboard.
 - Set Goals: Users can set spending goals and monitor their progress toward achieving them.
 - Edit & Delete: Expenses and goals can be edited or deleted by the user.
 
-###**Why Choose Budget Buddy?**
+### **Why Choose Budget Buddy?**
 
 - Simplicity: The minimalist interface ensures ease of use for individuals who want fast and clear insights into their financial situation.
 - Speed: The app is designed to be lightweight and fast, offering an efficient way to track finances without overloading users with complex features.
 - Responsiveness: The app is responsive on both desktop and mobile devices, ensuring usability across all platforms.
 
-###**Tech Stack**
+### **Tech Stack**
 
 - Frontend: React.js, React-Bootstrap (for UI components and responsive design)
 - Backend: SQLite (lightweight database)
 - Development Environment: Ubuntu 24.04 (WSL)
 
-###**Features**
+### **Features**
 
-####**1.Landing Page:**
+#### **1.Landing Page:**
 
 - Registration and sign-in forms.
 - An "About" section explaining the app’s purpose.
 - A "Why Choose Budget Buddy" section listing the app’s benefits.
 
-####**2.Dashboard (Post-login):**
+#### **2.Dashboard (Post-login):**
 
 - A page to log daily expenses, set financial goals, and track spending.
 - Real-time visualization of expenses and goals.
 - Charts (Bar Graph, Pie Chart, etc.) to represent spending patterns.
 - Editable and deletable goals and expenses.
 
-###**Installation Steps**
+### **Installation Steps**
 
-####**1. Clone the repository:**
+#### **1.Clone the repository:**
 ```Bash
 git clone https://github.com/your-username/BudgetMcBuddy.git
 cd BudgetMcBuddy
 ```
 
-####**2. Frontend Setup:**
+#### **2.Frontend Setup:**
 
 Navigate to the frontend folder:
 
@@ -60,7 +60,7 @@ Start the React development server:
 
 `npm start`
 
-####**3. Backend Setup:**
+#### **3.Backend Setup:**
 
 Create a virtual environment:
 
@@ -79,7 +79,7 @@ Start the Flask backend server:
 
 **Access the app** <http://localhost:3000> for frontend and <http://localhost:5000> for backend
 
-###**Code Overview**
+### **Code Overview**
 
 This handles the API routes for user registration, login, and expense management.
 
@@ -190,7 +190,7 @@ button:hover {
 }
 ```
 
-###**File Structure**
+### **File Structure**
 
 ```
 BUDGETMCBUDDY
@@ -230,7 +230,7 @@ BUDGETMCBUDDY
 └── README.md                     # Project documentation
 ```
 
-###**Contributing**
+### **Contributing**
 
 Feel free to fork the repository and contribute! Here are some ways you can contribute:
 
@@ -238,7 +238,7 @@ Feel free to fork the repository and contribute! Here are some ways you can cont
 - Suggest features or improvements.
 - Contribute code via pull requests.
 
-###**Authors**
+### **Authors**
 
 **Mac Millian Zungene**
 <Email: macmillianzungene@gmail.com>
