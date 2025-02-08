@@ -192,8 +192,43 @@ button:hover {
 
 ###**File Structure**
 
-![File Structure]
-![Reference Image](/structure/file_structure.png)
+```
+BUDGETMCBUDDY
+├── backend
+│   ├── __pycache__              # Python bytecode files
+│   ├── app.py                   # Flask backend main application file
+│   ├── budget_buddy.db          # SQLite database file
+│   ├── database.py              # Database connection and setup
+├── frontend
+│   ├── node_modules             # Node.js modules
+│   ├── public
+│   │   ├── favicon.ico          # App favicon
+│   │   ├── index.html           # Main HTML template
+│   │   ├── logo192.png          # Logo for the app (192x192)
+│   │   ├── logo512.png          # Logo for the app (512x512)
+│   │   ├── manifest.json        # Web app manifest file
+│   │   ├── robots.txt           # Robots file for search engines
+│   ├── src
+│   │   ├── api.js               # API call methods
+│   │   ├── App.css              # Main styling file
+│   │   ├── App.js               # Root React component
+│   │   ├── App.test.js          # Unit tests for App component
+│   │   ├── Dashboard.js         # Dashboard page (expenses & goals)
+│   │   ├── index.css            # Global CSS styles
+│   │   ├── index.js             # Entry point for React app
+│   │   ├── Login.js             # Login page component
+│   │   ├── logo.svg             # App logo SVG file
+│   │   ├── Register.js          # Registration page component
+│   │   ├── reportWebVitals.js   # Web performance report file
+│   │   ├── setupTests.js        # Test setup for frontend testing
+├── venv                          # Python virtual environment
+├── .gitattributes                # Git attributes configuration
+├── .gitignore                    # Git ignore configuration
+├── .gitmodules                   # Git submodules configuration
+├── package-lock.json             # npm package lock file
+├── package.json                  # npm configuration file
+└── README.md                     # Project documentation
+```
 
 ###**Contributing**
 
