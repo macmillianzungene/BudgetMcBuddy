@@ -20,6 +20,8 @@ import {
   FaHome,
   FaQuestionCircle,
 } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";  // Import react-toastify
+import "react-toastify/dist/ReactToastify.css";  // Import styles
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -40,14 +42,19 @@ const Dashboard = () => {
 
   useEffect(() => {
     const userId = getUserId();
-
     getExpenses(userId)
       .then((response) => setExpenses(response.data))
-      .catch((error) => console.error("Error fetching expenses:", error));
+      .catch((error) => {
+        console.error("Error fetching expenses:", error);
+        toast.error("Failed to load expenses.");
+      });
 
     getGoals(userId)
       .then((response) => setGoals(response.data))
-      .catch((error) => console.error("Error fetching goals:", error));
+      .catch((error) => {
+        console.error("Error fetching goals:", error);
+        toast.error("Failed to load goals.");
+      });
   }, []);
 
   const handleAddExpense = async (e) => {
@@ -57,8 +64,10 @@ const Dashboard = () => {
       await addExpense({ ...newExpense, user_id });
       refreshExpenses();
       setNewExpense({ amount: "", category: "", date: "" });
+      toast.success("Expense added successfully!");
     } catch (error) {
       console.error("Error adding the expense", error);
+      toast.error("Failed to add expense.");
     }
   };
 
@@ -69,8 +78,10 @@ const Dashboard = () => {
       await setGoal({ ...newGoal, user_id });
       refreshGoals();
       setNewGoal({ goal_amount: "", category: "" });
+      toast.success("Goal set successfully!");
     } catch (error) {
       console.error("Error setting the goal", error);
+      toast.error("Failed to set goal.");
     }
   };
 
@@ -79,8 +90,10 @@ const Dashboard = () => {
       await editExpense(expenseId, editedExpense);
       setEditingExpenseId(null);
       refreshExpenses();
+      toast.info("Expense updated successfully!");
     } catch (error) {
       console.error("Error editing expense:", error);
+      toast.error("Failed to update expense.");
     }
   };
 
@@ -88,8 +101,10 @@ const Dashboard = () => {
     try {
       await deleteExpense(expenseId);
       refreshExpenses();
+      toast.warn("Expense deleted.");
     } catch (error) {
       console.error("Error deleting expense:", error);
+      toast.error("Failed to delete expense.");
     }
   };
 
@@ -98,8 +113,10 @@ const Dashboard = () => {
       await editGoal(goalId, editedGoal);
       setEditingGoalId(null);
       refreshGoals();
+      toast.info("Goal updated successfully!");
     } catch (error) {
       console.error("Error editing goal:", error);
+      toast.error("Failed to update goal.");
     }
   };
 
@@ -107,21 +124,29 @@ const Dashboard = () => {
     try {
       await deleteGoal(goalId);
       refreshGoals();
+      toast.warn("Goal deleted.");
     } catch (error) {
       console.error("Error deleting goal:", error);
+      toast.error("Failed to delete goal.");
     }
   };
 
   const refreshExpenses = () => {
     getExpenses(getUserId())
       .then((response) => setExpenses(response.data))
-      .catch((error) => console.error("Error fetching expenses:", error));
+      .catch((error) => {
+        console.error("Error fetching expenses:", error);
+        toast.error("Failed to refresh expenses.");
+      });
   };
 
   const refreshGoals = () => {
     getGoals(getUserId())
       .then((response) => setGoals(response.data))
-      .catch((error) => console.error("Error fetching goals:", error));
+      .catch((error) => {
+        console.error("Error fetching goals:", error);
+        toast.error("Failed to refresh goals.");
+      });
   };
 
   const calculateProgress = (goal) => {
@@ -131,10 +156,9 @@ const Dashboard = () => {
 
     const progressPercentage =
       (totalExpensesInCategory / goal.goal_amount) * 100;
-    return Math.min(progressPercentage, 100); // Cap at 100%
+    return Math.min(progressPercentage, 100);
   };
 
-  // Map categories to icons
   const getCategoryIcon = (category) => {
     switch (category.toLowerCase()) {
       case "groceries":
@@ -154,6 +178,8 @@ const Dashboard = () => {
 
   return (
     <div className="container mt-4">
+      <ToastContainer position="top-right" autoClose={3000} /> {/* Toast Container */}
+
       <h2>Your Dashboard</h2>
 
       {/* Add Expense Form */}
@@ -214,7 +240,7 @@ const Dashboard = () => {
         </button>
       </form>
 
-      {/* Display Goals with Updated Progress Bars */}
+      {/* Display Goals with Progress Bars */}
       <h3>Your Goals</h3>
       <ul className="list-group">
         {goals.map((goal) => (
@@ -261,7 +287,13 @@ const Dashboard = () => {
                   now={calculateProgress(goal)}
                   label={`${Math.round(calculateProgress(goal))}%`}
                   className="mt-2"
-                  variant={calculateProgress(goal) >= 100 ? "success" : "info"}
+                  variant={
+                    calculateProgress(goal) >= 100
+                      ? "success"
+                      : calculateProgress(goal) >= 50
+                      ? "warning"
+                      : "danger"
+                  }
                   style={{ height: "30px", fontSize: "16px" }}
                 />
                 <button
