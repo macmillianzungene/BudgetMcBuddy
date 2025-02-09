@@ -8,7 +8,7 @@ CORS(app)  # Allow cross-origin requests (useful for frontend/backend communicat
 
 @app.route('/')
 def home():
-    return "Budget Buddy Backend"
+    return "Budget Mc- Buddy Backend"
 
 # Database connection helper function
 def get_db():
