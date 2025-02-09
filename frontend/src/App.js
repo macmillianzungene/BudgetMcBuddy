@@ -19,8 +19,8 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <h1>Welcome to Budget Buddy</h1>
-          <p>Your easy-to-use financial tracker.</p>
+          <h1>Welcome to Budget Mc-Buddy</h1>
+          <p>Your easy-to-use financial tracker.<br />Budget Buddy is a minimalist and user-friendly app that helps individuals easily manage their finances by tracking daily expenses, setting goals, and visualizing spending patterns.</p>
           {!isLoggedIn && (
             <div>
               <Link to="/">
