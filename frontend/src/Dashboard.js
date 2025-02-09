@@ -19,9 +19,10 @@ import {
   FaFilm,
   FaHome,
   FaQuestionCircle,
+  FaFileExport,
 } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";  // Import react-toastify
-import "react-toastify/dist/ReactToastify.css";  // Import styles
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -176,11 +177,43 @@ const Dashboard = () => {
     }
   };
 
+  // Export Data to CSV
+  const exportToCSV = (data, filename) => {
+    const csvContent = [
+      Object.keys(data[0]).join(","),
+      ...data.map((item) => Object.values(item).join(",")),
+    ].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute("download", `${filename}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="container mt-4">
-      <ToastContainer position="top-right" autoClose={3000} /> {/* Toast Container */}
+      <ToastContainer position="top-right" autoClose={3000} />
 
       <h2>Your Dashboard</h2>
+
+      {/* Export Buttons */}
+      <div className="mb-4 d-flex justify-content-end">
+        <button
+          onClick={() => exportToCSV(expenses, "expenses")}
+          className="btn btn-outline-primary me-2"
+        >
+          <FaFileExport /> Export Expenses
+        </button>
+        <button
+          onClick={() => exportToCSV(goals, "goals")}
+          className="btn btn-outline-success"
+        >
+          <FaFileExport /> Export Goals
+        </button>
+      </div>
 
       {/* Add Expense Form */}
       <h3>Log a New Expense</h3>
@@ -301,7 +334,7 @@ const Dashboard = () => {
                     setEditingGoalId(goal.id);
                     setEditedGoal(goal);
                   }}
-                  className="btn btn-warning btn-sm mt-2"
+                  className="btn btn-warning btn-sm mt-2 me-2"
                 >
                   Edit
                 </button>
@@ -373,7 +406,7 @@ const Dashboard = () => {
                     setEditingExpenseId(expense.id);
                     setEditedExpense(expense);
                   }}
-                  className="btn btn-warning btn-sm mt-2"
+                  className="btn btn-warning btn-sm mt-2 me-2"
                 >
                   Edit
                 </button>
