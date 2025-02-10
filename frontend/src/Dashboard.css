@@ -1,5 +1,6 @@
+/* Style for Progress Bars */
 .progress {
-  background-color: #e9ecef;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -10,22 +11,118 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  font-size: 16px;
 }
 
+/* Card Styling for Expenses and Goals */
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item strong {
+  font-size: 18px;
+  color: #355c7d;
+}
+
+/* Form Input Styling */
+input[type="number"],
+input[type="text"],
+input[type="date"] {
+  border: 2px solid #355c7d;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  background-color: #fff;
+  color: #333;
+}
+
+input[type="number"]::placeholder,
+input[type="text"]::placeholder {
+  color: #999;
+}
+
+/* Button Styling */
+button {
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #355c7d;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2a4059;
+}
+
+.btn-success {
+  background-color: #6c5b7b;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #5a4a65;
+}
+
+.btn-warning {
+  background-color: #f67280;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e15b68;
+}
+
+.btn-danger {
+  background-color: #c06c84;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #a6546f;
+}
+
+/* Export Button Styling */
 .export-buttons {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
-.export-buttons .btn-info {
+.export-buttons .btn-outline-primary,
+.export-buttons .btn-outline-success {
   display: flex;
   align-items: center;
   font-weight: bold;
-  background-color: #17a2b8;
-  border: none;
+  border: 2px solid;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.export-buttons .btn-info:hover {
-  background-color: #138496;
+.export-buttons .btn-outline-primary {
+  color: #355c7d;
+  border-color: #355c7d;
 }
+
+.export-buttons .btn-outline-primary:hover {
+  background-color: #355c7d;
+  color: #fff;
+}
+
+.export-buttons .btn-outline-success {
+  color: #6c5b7b;
+  border-color: #6c5b7b;
+}
+
+.export-buttons .btn-outline-success:hover {
+  background-color: #6c5b7b;
+  color: #fff;
+}
+
