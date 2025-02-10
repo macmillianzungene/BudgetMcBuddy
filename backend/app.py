@@ -18,7 +18,7 @@ def get_db():
 
 # ---------------- USER AUTHENTICATION ----------------
 
-# User Registration
+# User Registration for clients
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
