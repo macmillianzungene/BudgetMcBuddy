@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 venv/
 node_modules/
 .env
 __pycache__/
+=======
+
+venv/
+node_modules/
+.env
+__pycache__/
+>>>>>>> styling

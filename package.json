@@ -10,6 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "node-forge": "^1.4.0",
+>>>>>>> styling
     "react-scripts": "^0.0.0"
   }
 }
