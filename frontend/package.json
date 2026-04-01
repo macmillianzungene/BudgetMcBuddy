@@ -17,10 +17,9 @@
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.5",
     "react-scripts": "^0.0.0",
-<<<<<<< HEAD
-=======
+
     "react-toastify": "^11.0.3",
->>>>>>> styling
+
     "web-vitals": "^4.2.4"
   },
   "scripts": {
